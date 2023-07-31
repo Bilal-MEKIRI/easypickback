@@ -15,14 +15,14 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-// Route for movies
-app.use("/movies", require("./routes/movies.js"));
+//Route for the movies
+app.use("/", require("./routes/getMovies.js"));
 
-// Route for series
-app.use("/series", require("./routes/series.js"));
+//Route for the series
+app.use("/", require("./routes/getSeries.js"));
 
 // Configuration for initial data population
-const populateData = true; // Set to true when you want to populate data; set to false after the initial population
+const populateData = false; // Set to true when you want to populate data; set to false after the initial population
 
 // Function to fetch and save data
 async function fetchAndSaveData() {
