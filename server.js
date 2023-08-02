@@ -21,6 +21,9 @@ app.use("/", require("./routes/getMovies.js"));
 //Route for the series
 app.use("/", require("./routes/getSeries.js"));
 
+//Route for users
+app.use("/", require("./routes/users.js"))
+
 // Configuration for initial data population
 const populateData = false; // Set to true when you want to populate data; set to false after the initial population
 
