@@ -8,6 +8,7 @@ const movieSchema = new mongoose.Schema({
   trailer: Array,
   duration: Number,
   score: Number,
+  popularity: Number,
   genre: String,
   releaseDate: Date,
   fetchedAt: { type: Date, default: Date.now }, // Add a new field for fetchedAt with the default value as the current timestamp

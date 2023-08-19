@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+const helmet = require("helmet");
 const { ENV, connectionToDataBase } = require("./config/env.js");
 const { fetchAndSaveMovies } = require("./tmdbMoviesToMongoDB.js");
 const { fetchAndSaveSeries } = require("./tmdbSeriesToMongoDB.js");
@@ -12,8 +13,13 @@ connectionToDataBase();
 //Creating instance of express application
 const app = express();
 
+app.use(helmet());
 app.use(express.json());
-app.use(cors());
+app.use(
+  cors({
+    origin: "http://localhost:3000", // or wherever your frontend is hosted
+  })
+);
 
 //Route for the movies
 app.use("/", require("./routes/getMovies.js"));
@@ -22,7 +28,10 @@ app.use("/", require("./routes/getMovies.js"));
 app.use("/", require("./routes/getSeries.js"));
 
 //Route for users
-app.use("/", require("./routes/users.js"))
+app.use("/", require("./routes/users.js"));
+
+//Route for emails
+app.use("/", require("./routes/emails.js"));
 
 // Configuration for initial data population
 const populateData = false; // Set to true when you want to populate data; set to false after the initial population

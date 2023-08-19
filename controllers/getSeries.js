@@ -2,7 +2,7 @@ const Series = require("../models/series.js");
 
 const getAllSeries = async (req, res) => {
   try {
-    const series = await Series.find().limit(10);
+    const series = await Series.find().limit();
     res.status(200).json(series);
   } catch (error) {
     console.error(error);
