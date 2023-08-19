@@ -10,7 +10,7 @@ const totalNumPages = 25; // Set the total number of pages you want to fetch (ad
 async function fetchAndSaveMovies() {
   try {
     for (let page = 1; page <= totalNumPages; page++) {
-      const url = `https://api.themoviedb.org/3/discover/movie?include_adult=false&language=en-US&page=${page}&sort_by=popularity.desc&api_key=${apiKey}`;
+      const url = `https://api.themoviedb.org/3/discover/movie?include_adult=false&language=fr-FR&page=${page}&sort_by=popularity.desc&api_key=${apiKey}`;
       const response = await axios.get(url);
 
       const transformedMovies = await Promise.all(
@@ -35,6 +35,7 @@ async function fetchAndSaveMovies() {
             trailer: trailers,
             duration: parseInt(movieDetails.runtime, 10),
             score: movieDetails.vote_average,
+            popularity: movieDetails.popularity,
             genre: movieDetails.genres.map((genre) => genre.name).join(", "),
             releaseDate: new Date(movieDetails.release_date),
             fetchedAt: new Date(), // Add the fetchedAt field with the current timestamp
