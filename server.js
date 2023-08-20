@@ -24,6 +24,9 @@ app.use(
       "https://easy-puce-coati-tam.cyclic.cloud/emails/",
       "https://easypickmovies.fr/",
     ], // or wherever your frontend is hosted
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+    credentials: true, // Allow cookies or authorization headers to be sent in cross-origin requests
   })
 );
 
