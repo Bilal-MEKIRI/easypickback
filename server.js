@@ -16,10 +16,10 @@ app.use(
   cors({
     origin: [
       "https://easy-puce-coati-tam.cyclic.cloud",
-      "https://easy-puce-coati-tam.cyclic.cloud/series/",
-      "https://easy-puce-coati-tam.cyclic.cloud/movies/",
-      "https://easy-puce-coati-tam.cyclic.cloud/emails/",
-      "https://easypickmovies.fr/",
+      "https://easy-puce-coati-tam.cyclic.cloud/series",
+      "https://easy-puce-coati-tam.cyclic.cloud/movies",
+      "https://easy-puce-coati-tam.cyclic.cloud/emails",
+      "https://easypickmovies.fr",
     ], // or wherever your frontend is hosted
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
