@@ -12,9 +12,6 @@ connectionToDataBase();
 
 //Creating instance of express application
 const app = express();
-
-app.use(helmet());
-app.use(express.json());
 app.use(
   cors({
     origin: [
@@ -29,6 +26,8 @@ app.use(
     credentials: true, // Allow cookies or authorization headers to be sent in cross-origin requests
   })
 );
+app.use(helmet());
+app.use(express.json());
 
 //Route for the movies
 app.use("/", require("./routes/getMovies.js"));
