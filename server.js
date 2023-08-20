@@ -17,7 +17,7 @@ app.use(helmet());
 app.use(express.json());
 app.use(
   cors({
-    origin: "https://easypickmovies.fr/", // or wherever your frontend is hosted
+    origin: "https://easy-puce-coati-tam.cyclic.cloud/movies", // or wherever your frontend is hosted
   })
 );
 
