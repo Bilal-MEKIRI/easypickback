@@ -17,7 +17,7 @@ app.use(helmet());
 app.use(express.json());
 app.use(
   cors({
-    origin: "http://localhost:3000", // or wherever your frontend is hosted
+    origin: "https://easypickmovies.fr/", // or wherever your frontend is hosted
   })
 );
 
