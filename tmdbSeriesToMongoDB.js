@@ -11,16 +11,17 @@ const totalNumPages = 25; // Set the total number of pages you want to fetch (ad
 async function fetchAndSaveSeries() {
   try {
     for (let page = 1; page <= totalNumPages; page++) {
-      const url = `https://api.themoviedb.org/3/discover/tv?include_adult=false&language=fr-FR&page=${page}&sort_by=popularity.desc&api_key=${apiKey}`;
+      const url = `https://api.themoviedb.org/3/discover/tv?api_key=${apiKey}&language=fr-FR&page=${page}
+      `;
       const response = await axios.get(url);
 
       const transformedSeries = await Promise.all(
         response.data.results.map(async (series) => {
-          const detailsUrl = `https://api.themoviedb.org/3/tv/${series.id}?api_key=${apiKey}`;
+          const detailsUrl = `https://api.themoviedb.org/3/tv/${series.id}?api_key=${apiKey}&language=fr-FR`;
           const detailsResponse = await axios.get(detailsUrl);
           const seriesDetails = detailsResponse.data;
 
-          const videosUrl = `https://api.themoviedb.org/3/tv/${series.id}/videos?api_key=${apiKey}`;
+          const videosUrl = `https://api.themoviedb.org/3/tv/${series.id}/videos?api_key=${apiKey}&language=fr-FR`;
           const videosResponse = await axios.get(videosUrl);
           const trailers = getYoutubeVideoUrls(videosResponse.data.results);
 
