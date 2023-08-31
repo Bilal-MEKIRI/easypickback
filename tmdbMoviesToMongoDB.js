@@ -5,7 +5,7 @@ const { getYoutubeVideoUrls } = require("./utils/utils.js");
 
 const apiKey = "92dcc9c5fe90c540e1edd57de433116f";
 const baseImageUrl = "https://image.tmdb.org/t/p/w500";
-const totalNumPages = 25; // Set the total number of pages you want to fetch (adjust as needed)
+const totalNumPages = 40; // Set the total number of pages you want to fetch (adjust as needed)
 
 async function fetchAndSaveMovies() {
   try {
