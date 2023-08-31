@@ -20,6 +20,7 @@ app.use(
       "https://easy-puce-coati-tam.cyclic.cloud/movies",
       "https://easy-puce-coati-tam.cyclic.cloud/emails",
       "https://easypickmovies.fr",
+      "http://localhost:3000",
     ], // or wherever your frontend is hosted
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
