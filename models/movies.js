@@ -12,6 +12,7 @@ const movieSchema = new mongoose.Schema({
   genre: String,
   releaseDate: Date,
   fetchedAt: { type: Date, default: Date.now }, // Add a new field for fetchedAt with the default value as the current timestamp
+  slug: String,
 });
 
 const Movies = mongoose.model("Movies", movieSchema);
