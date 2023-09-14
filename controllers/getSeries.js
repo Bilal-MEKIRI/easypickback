@@ -33,6 +33,17 @@ const getSeriesByName = async (req, res) => {
   }
 };
 
+const getSeriesBySlug = async (req, res) => {
+  try {
+    const slug = req.params.slug;
+    const series = await Series.findOne({ slug: slug });
+    res.status(200).json(series);
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: error.message });
+  }
+};
+
 const getSeriesByGenre = async (req, res) => {
   try {
     const genreString = await req.params.genre;
@@ -51,4 +62,5 @@ module.exports = {
   getSeriesById,
   getSeriesByName,
   getSeriesByGenre,
+  getSeriesBySlug,
 };

@@ -36,6 +36,18 @@ const getMovieByTitle = async (req, res) => {
   }
 };
 
+const getMovieBySlug = async (req, res) => {
+  try {
+    const slug = req.params.slug;
+
+    const movie = await Movies.findOne({ slug: slug });
+    res.status(200).json(movie);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: error.message });
+  }
+};
+
 const getMoviesByGenre = async (req, res) => {
   try {
     const genreString = await req.params.genre;
@@ -59,4 +71,5 @@ module.exports = {
   getMovieById,
   getMovieByTitle,
   getMoviesByGenre,
+  getMovieBySlug,
 };

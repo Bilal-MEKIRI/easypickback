@@ -1,11 +1,16 @@
 const axios = require("axios");
 const mongoose = require("mongoose");
+const slugify = require("slugify");
 const MovieModel = require("./models/movies");
 const { getYoutubeVideoUrls } = require("./utils/utils.js");
 
 const apiKey = "92dcc9c5fe90c540e1edd57de433116f";
 const baseImageUrl = "https://image.tmdb.org/t/p/w500";
-const totalNumPages = 40; // Set the total number of pages you want to fetch (adjust as needed)
+const totalNumPages = 100; // Set the total number of pages you want to fetch (adjust as needed)
+
+function createSlug(title, releaseDate) {
+  return slugify(`Film-${title}-${releaseDate}`);
+}
 
 async function fetchAndSaveMovies() {
   try {
@@ -40,6 +45,7 @@ async function fetchAndSaveMovies() {
             genre: movieDetails.genres.map((genre) => genre.name).join(", "),
             releaseDate: new Date(movieDetails.release_date),
             fetchedAt: new Date(), // Add the fetchedAt field with the current timestamp
+            slug: createSlug(movieDetails.title, movieDetails.release_date),
           };
         })
       );

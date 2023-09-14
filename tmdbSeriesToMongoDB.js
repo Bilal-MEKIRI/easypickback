@@ -1,12 +1,20 @@
 const axios = require("axios");
 const mongoose = require("mongoose");
+const slugify = require("slugify");
 const SeriesModel = require("./models/series");
 const { getYoutubeVideoUrls } = require("./utils/utils.js");
 const moment = require("moment");
 
 const apiKey = "92dcc9c5fe90c540e1edd57de433116f";
 const baseImageUrl = "https://image.tmdb.org/t/p/w500";
-const totalNumPages = 40; // Set the total number of pages you want to fetch (adjust as needed)
+const totalNumPages = 100; // Set the total number of pages you want to fetch (adjust as needed)
+
+function createSlug(title, releaseDate) {
+  const formattedDate = releaseDate
+    ? new Date(releaseDate).toISOString().split("T")[0]
+    : "unknown-date";
+  return slugify(`Serie-${title}-${formattedDate}`);
+}
 
 async function fetchAndSaveSeries() {
   try {
@@ -48,6 +56,7 @@ async function fetchAndSaveSeries() {
             genre: seriesDetails.genres.map((genre) => genre.name).join(", "),
             releaseDate,
             fetchedAt: new Date(), // Add the fetchedAt field with the current timestamp
+            slug: createSlug(seriesDetails.name, releaseDate),
           };
         })
       );

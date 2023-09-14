@@ -12,6 +12,7 @@ const tvSchema = new mongoose.Schema({
   genre: String,
   releaseDate: Date,
   fetchedAt: { type: Date, default: Date.now }, // Add a new field for fetchedAt with the default value as the current timestamp
+  slug: String,
 });
 
 const Series = mongoose.model("Series", tvSchema);
