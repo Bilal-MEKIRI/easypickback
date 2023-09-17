@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const dotenv = require("dotenv").config(); // this line is necessary to use the env if ommited the code would'nt be able to access the .env file
+const dotenv = require("dotenv").config(); // this line is necessary to use the env if ommited the code wouldn't be able to access the .env file
 
 const ENV = {
   //Definition of the PORT we'll be using for our app
