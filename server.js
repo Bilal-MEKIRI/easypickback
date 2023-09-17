@@ -37,9 +37,6 @@ app.use("/", require("./routes/getMovies.js"));
 //Route for the series
 app.use("/", require("./routes/getSeries.js"));
 
-//Route for users
-app.use("/", require("./routes/users.js"));
-
 //Route for emails
 app.use("/", require("./routes/emails.js"));
 

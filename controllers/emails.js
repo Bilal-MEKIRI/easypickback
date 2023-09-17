@@ -53,40 +53,6 @@ const postEmails = async (req, res) => {
       console.error(error);
       res.status(500).json({ message: error.message });
     }
-
-    // Create a transporter using the default SMTP transport
-    // const transporter = nodemailer.createTransport({
-    //   host: "smtp.gmail.com",
-    //   port: 587,
-    //   secure: false,
-    //   auth: {
-    //     user: process.env.EMAIL,
-    //     pass: process.env.EMAIL_PASSWORD,
-    //   },
-    // });
-
-    // Send an email notification
-    //   const mailOptions = {
-    //     from: process.env.EMAIL, // Replace with the recipient's email
-    //     to: process.env.EMAIL, // Replace with your email
-    //     subject: "New Email From EasyPick",
-    //     html: `
-    //   <p>You've received a new email from ${firstName} ${lastName}.</p>
-    //   <p>Sender email: ${email}.</p>
-    //   <p><strong>Message:</strong></p>
-    //   <p>${message}</p>
-    // `,
-    //   };
-
-    //   await transporter.sendMail(mailOptions, (error, info) => {
-    //     if (error) {
-    //       console.error("Error sending email:", error);
-    //     } else {
-    //       console.log("Email sent:", info.response);
-    //     }
-    //   });
-
-    // res.status(200).json(savedEmail);
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: error.message });
