@@ -1,11 +1,12 @@
 const axios = require("axios");
 const mongoose = require("mongoose");
+const dotenv = require("dotenv").config();
 const slugify = require("slugify");
 const SeriesModel = require("./models/series");
 const { getYoutubeVideoUrls } = require("./utils/utils.js");
 const moment = require("moment");
 
-const apiKey = "92dcc9c5fe90c540e1edd57de433116f";
+const apiKey = process.env.TMDB_API_KEY;
 const baseImageUrl = "https://image.tmdb.org/t/p/w500";
 const totalNumPages = 100; // Set the total number of pages you want to fetch (adjust as needed)
 
