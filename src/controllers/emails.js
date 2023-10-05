@@ -59,7 +59,19 @@ const postEmails = async (req, res) => {
   }
 };
 
+const deleteEmails = async (req, res) => {
+  try {
+    const _id = req.params.id;
+    await Emails.findByIdAndDelete(_id);
+    res.status(200).json({ message: "Email deleted successfully." });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json("Couldn't delete email: ", error.message);
+  }
+};
+
 module.exports = {
   getEmails,
   postEmails,
+  deleteEmails,
 };

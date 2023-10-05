@@ -4,6 +4,7 @@ const dotenv = require("dotenv").config(); // this line is necessary to use the 
 const ENV = {
   //Definition of the PORT we'll be using for our app
   PORT: process.env.PORT,
+  NODE_ENV: process.env.NODE_ENV,
 };
 
 const connectionToDataBase = async () => {
@@ -19,4 +20,7 @@ const connectionToDataBase = async () => {
 module.exports = {
   ENV,
   connectionToDataBase,
+  accessTokenSecret: process.env.ACCESS_TOKEN_SECRET,
+  adminEmail: process.env.ADMIN_EMAIL,
+  adminPassword: process.env.ADMIN_PASSWORD,
 };

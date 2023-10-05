@@ -2,7 +2,11 @@ const express = require("express");
 const router = express.Router();
 const rateLimit = require("express-rate-limit");
 const { body } = require("express-validator");
-const { getEmails, postEmails } = require("../controllers/emails.js");
+const {
+  getEmails,
+  postEmails,
+  deleteEmails,
+} = require("../controllers/emails.js");
 
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
@@ -10,6 +14,7 @@ const limiter = rateLimit({
 });
 
 router.get("/emails", getEmails);
+router.delete("/emails/:id", deleteEmails);
 router.post(
   "/emails",
   [

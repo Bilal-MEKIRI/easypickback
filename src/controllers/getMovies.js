@@ -66,10 +66,52 @@ const getMoviesByGenre = async (req, res) => {
   }
 };
 
+const deleteMovie = async (req, res) => {
+  try {
+    const _id = req.params.id;
+    await Movies.findByIdAndDelete(_id);
+    res.status(200).json({ message: "Movie deleted successfully." });
+  } catch (error) {
+    console.error(error);
+    res
+      .status(500)
+      .json({ message: "Couldn't delete movie: " + error.message });
+  }
+};
+
+const updateMovie = async (req, res) => {
+  try {
+    const _id = req.params.id;
+    const { title, description } = req.body;
+
+    // Check if title and description are provided
+    if (!title && !description) {
+      return res
+        .status(400)
+        .json({ message: "Provide title or description to update." });
+    }
+
+    const updates = {};
+    if (title) updates.title = title;
+    if (description) updates.description = description;
+
+    await Movies.findByIdAndUpdate(_id, updates);
+
+    res.status(200).json({ message: "Movie updated successfully." });
+  } catch (error) {
+    console.error(error);
+    res
+      .status(500)
+      .json({ message: "Couldn't update movie: " + error.message });
+  }
+};
+
 module.exports = {
   getAllMovies,
   getMovieById,
   getMovieByTitle,
   getMoviesByGenre,
   getMovieBySlug,
+  deleteMovie,
+  updateMovie,
 };
