@@ -57,10 +57,52 @@ const getSeriesByGenre = async (req, res) => {
   }
 };
 
+const deleteSeries = async (req, res) => {
+  try {
+    const _id = req.params.id;
+    await Series.findByIdAndDelete(_id);
+    res.status(200).json({ message: "Series deleted successfully." });
+  } catch (error) {
+    console.error(error);
+    res
+      .status(500)
+      .json({ message: "Couldn't delete series: " + error.message });
+  }
+};
+
+const updateSeries = async (req, res) => {
+  try {
+    const _id = req.params.id;
+    const { title, description } = req.body;
+
+    // Check if title and description are provided
+    if (!title && !description) {
+      return res
+        .status(400)
+        .json({ message: "Provide title or description to update." });
+    }
+
+    const updates = {};
+    if (title) updates.title = title;
+    if (description) updates.description = description;
+
+    await Series.findByIdAndUpdate(_id, updates);
+
+    res.status(200).json({ message: "Series updated successfully." });
+  } catch (error) {
+    console.error(error);
+    res
+      .status(500)
+      .json({ message: "Couldn't update series: " + error.message });
+  }
+};
+
 module.exports = {
   getAllSeries,
   getSeriesById,
   getSeriesByName,
   getSeriesByGenre,
   getSeriesBySlug,
+  deleteSeries,
+  updateSeries,
 };
