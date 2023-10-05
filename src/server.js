@@ -21,6 +21,8 @@ connectionToDataBase().then(() => {
         "https://easy-puce-coati-tam.cyclic.cloud/series",
         "https://easy-puce-coati-tam.cyclic.cloud/movies",
         "https://easy-puce-coati-tam.cyclic.cloud/emails",
+        "https://easy-puce-coati-tam.cyclic.cloud/users",
+        "https://easy-puce-coati-tam.cyclic.cloud/comments",
         "https://easypickmovies.fr",
         ...(isProd ? [] : ["http://localhost:3000"]),
       ], // or wherever your frontend is hosted
