@@ -2,6 +2,7 @@ const axios = require("axios");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv").config();
 const slugify = require("slugify");
+const unidecode = require("unidecode");
 const SeriesModel = require("./models/series");
 const { getYoutubeVideoUrls } = require("./utils/utils.js");
 const moment = require("moment");
@@ -14,7 +15,9 @@ function createSlug(title, releaseDate) {
   const formattedDate = releaseDate
     ? new Date(releaseDate).toISOString().split("T")[0]
     : "unknown-date";
-  return slugify(`Serie-${title}-${formattedDate}`);
+  // Convert non-Latin characters to their closest Latin equivalents
+  const slugifiedTitle = unidecode(title);
+  return slugify(`Serie-${slugifiedTitle}-${formattedDate}`);
 }
 
 async function fetchAndSaveSeries() {

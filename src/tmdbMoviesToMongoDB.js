@@ -2,6 +2,7 @@ const axios = require("axios");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv").config();
 const slugify = require("slugify");
+const unidecode = require("unidecode");
 const MovieModel = require("./models/movies");
 const { getYoutubeVideoUrls } = require("./utils/utils.js");
 
@@ -10,7 +11,9 @@ const baseImageUrl = "https://image.tmdb.org/t/p/w500";
 const totalNumPages = 100; // Set the total number of pages you want to fetch (adjust as needed)
 
 function createSlug(title, releaseDate) {
-  return slugify(`Film-${title}-${releaseDate}`);
+  // Convert non-Latin characters to their closest Latin equivalents
+  const slugifiedTitle = unidecode(title);
+  return slugify(`Film-${slugifiedTitle}-${releaseDate}`);
 }
 
 async function fetchAndSaveMovies() {

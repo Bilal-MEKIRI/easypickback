@@ -27,7 +27,8 @@
     "mongoose": "^7.4.0",
     "node-fetch": "^2.6.12",
     "nodemailer": "^6.9.4",
-    "slugify": "^1.6.6"
+    "slugify": "^1.6.6",
+    "unidecode": "^0.1.8"
   },
   "devDependencies": {
     "nodemon": "^3.0.1"
