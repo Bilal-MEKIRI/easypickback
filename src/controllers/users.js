@@ -1,5 +1,4 @@
 const dotenv = require("dotenv").config();
-
 const Users = require("../models/users.js");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
@@ -12,12 +11,12 @@ if (!process.env.SECRET_KEY) {
 // Function to post a new user to the database
 const createUser = async (req, res) => {
   try {
-    const { email, password, username } = await req.body;
+    const { email, password, userName } = await req.body;
     // Create a new user document using the Users model
     const newUser = new Users({
       email: email,
       password: password,
-      username: username,
+      userName: userName,
     });
 
     //Using bcrypt to hash the password before saving the use into the database
@@ -67,7 +66,7 @@ const checkIfUserExists = async (req, res) => {
 
       // Generate JWT
       const token = jwt.sign(
-        { id: user._id, email: user.email },
+        { id: user._id, email: user.email, userName: user.userName },
         process.env.SECRET_KEY,
         {
           expiresIn: "1h", // token will expire in 1 hour

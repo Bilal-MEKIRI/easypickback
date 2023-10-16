@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const usersSchema = new mongoose.Schema({
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
+  userName: { type: String, required: true },
   loginAttempts: { type: Number, default: 0 }, // Tracks the number of failed login attempts
   lockUntil: { type: Date, default: null }, // Timestamp indicating when the account will be unlocked
 });
