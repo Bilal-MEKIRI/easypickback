@@ -17,13 +17,7 @@ connectionToDataBase().then(() => {
   app.use(
     cors({
       origin: [
-        "https://easy-pick-front-arat8emdg-bilal-mekiris-projects.vercel.app/",
-        "http://localhost:3000",
-        "https://easy-pick-front-arat8emdg-bilal-mekiris-projects.vercel.app/series",
-        "https://easy-pick-front-arat8emdg-bilal-mekiris-projects.vercel.app/movies",
-        "https://easy-pick-front-arat8emdg-bilal-mekiris-projects.vercel.app/emails",
-        "https://easy-pick-front-arat8emdg-bilal-mekiris-projects.vercel.app/users",
-        "https://easy-pick-front-arat8emdg-bilal-mekiris-projects.vercel.app/comments",
+        "https://easy-pick-front-fhx4tigj9-bilal-mekiris-projects.vercel.app/",
         // // ...(isProd ? [] : ["http://localhost:3030"]),
       ], // or wherever your frontend is hosted
       methods: ["GET", "POST", "PUT", "DELETE"],
