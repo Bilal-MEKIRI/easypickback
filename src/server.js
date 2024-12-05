@@ -6,7 +6,7 @@ const { ENV, connectionToDataBase } = require("./config/env.js");
 const { fetchAndSaveMovies } = require("./tmdbMoviesToMongoDB.js");
 const { fetchAndSaveSeries } = require("./tmdbSeriesToMongoDB.js");
 
-const PORT = ENV.PORT || 3000;
+const PORT = ENV.PORT || 3030;
 const isProd = ENV.NODE_ENV === "production";
 
 //Connection to the database
@@ -17,14 +17,13 @@ connectionToDataBase().then(() => {
   app.use(
     cors({
       origin: [
-        "https://easy-puce-coati-tam.cyclic.cloud",
-        "https://easy-puce-coati-tam.cyclic.cloud/series",
-        "https://easy-puce-coati-tam.cyclic.cloud/movies",
-        "https://easy-puce-coati-tam.cyclic.cloud/emails",
-        "https://easy-puce-coati-tam.cyclic.cloud/users",
-        "https://easy-puce-coati-tam.cyclic.cloud/comments",
-        "https://easypickmovies.fr",
-        ...(isProd ? [] : ["http://localhost:3000"]),
+        "http://localhost:3000",
+        // "http://localhost:3030/series",
+        // "http://localhost:3030/movies",
+        // "http://localhost:3030/emails",
+        // "http://localhost:3030/users",
+        // "http://localhost:3030/comments",
+        // // ...(isProd ? [] : ["http://localhost:3030"]),
       ], // or wherever your frontend is hosted
       methods: ["GET", "POST", "PUT", "DELETE"],
       allowedHeaders: ["Content-Type", "Authorization"],
