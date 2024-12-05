@@ -19,11 +19,11 @@ connectionToDataBase().then(() => {
       origin: [
         "https://easy-pick-front-arat8emdg-bilal-mekiris-projects.vercel.app/",
         "http://localhost:3000",
-        // "http://localhost:3030/series",
-        // "http://localhost:3030/movies",
-        // "http://localhost:3030/emails",
-        // "http://localhost:3030/users",
-        // "http://localhost:3030/comments",
+        "https://easy-pick-front-arat8emdg-bilal-mekiris-projects.vercel.app/series",
+        "https://easy-pick-front-arat8emdg-bilal-mekiris-projects.vercel.app/movies",
+        "https://easy-pick-front-arat8emdg-bilal-mekiris-projects.vercel.app/emails",
+        "https://easy-pick-front-arat8emdg-bilal-mekiris-projects.vercel.app/users",
+        "https://easy-pick-front-arat8emdg-bilal-mekiris-projects.vercel.app/comments",
         // // ...(isProd ? [] : ["http://localhost:3030"]),
       ], // or wherever your frontend is hosted
       methods: ["GET", "POST", "PUT", "DELETE"],
