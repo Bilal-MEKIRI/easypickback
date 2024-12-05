@@ -17,6 +17,7 @@ connectionToDataBase().then(() => {
   app.use(
     cors({
       origin: [
+        "https://easypickfrontend.vercel.app/",
         "http://localhost:3000",
         // "http://localhost:3030/series",
         // "http://localhost:3030/movies",
