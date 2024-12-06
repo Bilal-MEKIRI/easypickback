@@ -17,6 +17,13 @@ connectionToDataBase().then(() => {
   app.use(
     cors({
       origin: [
+        "https://easy-pick-front-eight.vercel.app",
+        "https://easy-pick-front-eight.vercel.app/series",
+        "https://easy-pick-front-eight.vercel.app/movies",
+        "https://easy-pick-front-eight.vercel.app/comments",
+        "https://easy-pick-front-eight.vercel.app/users",
+        "https://easy-pick-front-eight.vercel.app/emails",
+
         "https://easy-pick-front-c4hwhayjo-bilal-mekiris-projects.vercel.app",
         "https://easy-pick-front-c4hwhayjo-bilal-mekiris-projects.vercel.app/series",
         "https://easy-pick-front-c4hwhayjo-bilal-mekiris-projects.vercel.app/movies",
